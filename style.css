@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --primary-color: #1ae213;
+    --secondary-color: #000000;
+    --tomato-color: #ff6347;
+    --tertiary-color: #ffffff;
+    --font-size: 16px;
+    --font-family: 'Roboto', sans-serif;
+}
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.container{
+    width: 70vw;
+    height: 60vh;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.timer-container{
+  border: 2px solid  rgb(18, 18, 168);
+  background-image: url('/public/tomate-vermelho-isolado-no-fundo-branco-alimentos-saudaveis-organicos_361363-262.avifS');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--tomato-color);
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timer-control-button{
+  background-color: rgb(12, 12, 163);
+  color: #ffffff;
+  border: 1px solid  rgb(168, 18, 18);
+  width: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.timer-control-button:hover{
+  background-color: rgb(13, 13, 224);
+}
+
+
+
+svg{
+    color:  rgb(16, 16, 150);
+}
+
+svg:hover{
+    color:  rgb(14, 14, 204);
+}
+
+ ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.timer-controls{
+    height: 50px;
+    width: 100%;
+}
+
+.timer-control-button-back{
+    visibility: hidden;
+}
+
+.timer-control-button-forward{
+    visibility: hidden;
+}
+
+.timer-controls:hover .timer-control-button-back{
+    visibility: visible;
+}
+
+.timer-controls:hover .timer-control-button-forward{
+    visibility: visible;
+}
+
+.timer-controls:hover{
+    visibility: visible;
+}
+
+
+@media screen and (min-width: 768px) {
+    .container{
+        width: 50vw;
+        height: 60vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container{
+        width: 60vw;
+        height: 60vh;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container{
+        width: 700px;
+        height: 60vh;
+    }
+}
