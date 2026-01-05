@@ -1,24 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 
-:root{
-    --primary-color: #1ae213;
+:root {
+    --primary-color: green;
     --secondary-color: #000000;
     --tomato-color: #ff6347;
+    --color: rgb(12, 12, 163);
     --tertiary-color: #ffffff;
     --font-size: 16px;
     --font-family: 'Roboto', sans-serif;
 }
 
 
-body{
+body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--secondary-color);
+    background: #002424;
+    background: linear-gradient(90deg, rgb(0, 17, 36) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    color: var(--color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,111 +29,133 @@ body{
 }
 
 
-
-.container{
+.container {
     width: 70vw;
     height: 60vh;
-    background-color: var(--primary-color);
+    background: #020024;
+    background: linear-gradient(90deg, rgb(47, 70, 32) 0%, rgb(33, 117, 47) 35%, rgb(157, 255, 0) 100%);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px -7px #050505;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
 
-.timer-container{
-  border: 2px solid  rgb(18, 18, 168);
-  background-image: url('/public/tomate-vermelho-isolado-no-fundo-branco-alimentos-saudaveis-organicos_361363-262.avifS');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--tomato-color);
-  border-radius: 100%;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+.timer-container {
+    border: 2px solid rgb(18, 18, 168);
+    background-image: url('/public/tomate-vermelho-isolado-no-fundo-branco-alimentos-saudaveis-organicos_361363-262.avifS');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--tomato-color);
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    animation-duration: 5s;
+
 }
 
-.timer-control-button{
-  background-color: rgb(12, 12, 163);
-  color: #ffffff;
-  border: 1px solid  rgb(168, 18, 18);
-  width: 100px;
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
+.timer-control-button {
+    background-color: rgb(12, 12, 163);
+    color: #ffffff;
+    border: 1px solid rgb(168, 18, 18);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    padding: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation-duration: 5s;
+
+
 }
 
-.timer-control-button:hover{
-  background-color: rgb(13, 13, 224);
+.timer-control-button:hover {
+    background-color: rgb(13, 13, 224);
+    height: 55px;
+    width: 55px;
+
+    animation-duration: 5s;
+
 }
 
 
 
-svg{
-    color:  rgb(16, 16, 150);
+svg {
+    animation-delay: 5s;
+    color: rgb(16, 16, 150);
+    animation-duration: 5s;
+
 }
 
-svg:hover{
-    color:  rgb(14, 14, 204);
+svg:hover {
+    animation-delay: 5s;
+    color: rgb(14, 14, 204);
 }
 
- ul{
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  gap: 20px;
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
 }
 
-.timer-controls{
+.timer-controls {
     height: 50px;
     width: 100%;
 }
 
-.timer-control-button-back{
+.timer-control-button-back {
     visibility: hidden;
 }
 
-.timer-control-button-forward{
+.timer-control-button-forward {
     visibility: hidden;
 }
 
-.timer-controls:hover .timer-control-button-back{
+.timer-controls:hover .timer-control-button-back {
     visibility: visible;
 }
 
-.timer-controls:hover .timer-control-button-forward{
+.timer-controls:hover .timer-control-button-forward {
     visibility: visible;
 }
 
-.timer-controls:hover{
+.timer-controls:hover {
     visibility: visible;
 }
 
 
 @media screen and (min-width: 768px) {
-    .container{
+    .container {
         width: 50vw;
         height: 60vh;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .container{
+    .container {
         width: 60vw;
         height: 60vh;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .container{
+    .container {
         width: 700px;
         height: 60vh;
     }
