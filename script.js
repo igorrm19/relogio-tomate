@@ -9,11 +9,9 @@ const history = document.getElementById("historico");
 const con11 = document.getElementById("container1.1");
 const con12 = document.getElementById("container1.2");
 const con21 = document.getElementById("container2.1");
-const con22 = document.getElementById("container2.2");
 const con31 = document.getElementById("container3.1");
-
-const minutos5 = document.getElementById("minutos5");
-const segundos5 = document.getElementById("segundos5");
+const segundos2 = document.getElementById("segundos2");
+const minutos2 = document.getElementById("minutos2")
 
 const Play = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="color: crimson;" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
@@ -56,7 +54,6 @@ function Parar() {
 }
 
 
-
 function History() {
     history.style.display = "block";
     parar.style.display = "none";
@@ -70,7 +67,6 @@ function History() {
     con21.style.display = "none";
 
 }
-
 
 let arrayDisplay = [Plays, Parar, History];
 
@@ -140,19 +136,57 @@ pause.addEventListener("click", () => {
 
 });
 
+
+parar.addEventListener("click", () => {
+
+    if (ObjTime2.controllrs) {
+
+        if (!ObjTime2.interval) {
+            ObjTime2.interval = setInterval(() => {
+                if (ObjTime2.segundos === 0) {
+                    if (ObjTime2.minutos === 0) {
+                        clearInterval(ObjTime2.interval);
+                        ObjTime2.interval = null;
+                        return;
+                    }
+                    ObjTime2.minutos--;
+                    ObjTime2.segundos = 59;
+                } else {
+
+                    ObjTime2.segundos--;
+                }
+
+                segundos2.textContent = ObjTime2.segundos.toString().padStart(2, "0");
+                minutos2.textContent = ObjTime2.minutos.toString().padStart(2, "0");
+
+            }, 1000);
+        }
+
+    } else {
+
+        clearInterval(ObjTime2.interval);
+        ObjTime2.interval = null;
+    }
+
+    ObjTime2.controllrs = !ObjTime2.controllrs
+
+}
+
+
+);
+
 let valor = 0;
 svgBack.addEventListener("click", () => {
 
-    arrayDisplay[valor]();
-    console.log(arrayDisplay[valor]);
     valor = (valor + 1) % arrayDisplay.length;
+    arrayDisplay[valor]();
 
 
 });
 
 svgForrward.addEventListener("click", () => {
-    arrayDisplay[valor]();
-    console.log(arrayDisplay[valor]());
+
     valor = (valor - 1 + arrayDisplay.length) % arrayDisplay.length;
+    arrayDisplay[valor]();
 
 });
