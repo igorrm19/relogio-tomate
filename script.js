@@ -11,7 +11,8 @@ const con12 = document.getElementById("container1.2");
 const con21 = document.getElementById("container2.1");
 const con31 = document.getElementById("container3.1");
 const segundos2 = document.getElementById("segundos2");
-const minutos2 = document.getElementById("minutos2")
+const minutos2 = document.getElementById("minutos2");
+const historyContainer = document.getElementById("history-container");
 
 const Play = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="color: crimson;" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
@@ -55,6 +56,8 @@ function Parar() {
 
 
 function History() {
+    loadHistory();
+
     history.style.display = "block";
     parar.style.display = "none";
     pause.style.display = "none";
@@ -73,7 +76,7 @@ let arrayDisplay = [Plays, Parar, History];
 
 
 let ObjTime = {
-    minutos: 25,
+    minutos: 1,
     segundos: 0,
     interval: null,
     controllrs: true
@@ -93,6 +96,46 @@ let ObjSVG = {
 }
 
 
+function addCompletedSession() {
+    const tomatoEmoji = document.createElement("span");
+    tomatoEmoji.textContent = "🍅";
+    tomatoEmoji.style.fontSize = "2rem";
+    tomatoEmoji.style.margin = "5px";
+    historyContainer.appendChild(tomatoEmoji);
+    
+    const sessionCount = getSessionCount() + 1;
+    localStorage.setItem("pomodoroSessions", sessionCount.toString());
+    
+    const tomatoes = getTomatoes();
+    tomatoes.push(Date.now());
+    localStorage.setItem("pomodoroTomatoes", JSON.stringify(tomatoes));
+}
+
+function getSessionCount() {
+    const count = localStorage.getItem("pomodoroSessions");
+    return count ? parseInt(count, 10) : 0;
+}
+
+function getTomatoes() {
+    const tomatoes = localStorage.getItem("pomodoroTomatoes");
+    return tomatoes ? JSON.parse(tomatoes) : [];
+}
+
+function loadHistory() {
+    const tomatoes = getTomatoes();
+    historyContainer.innerHTML = "";
+    tomatoes.forEach(() => {
+        const tomatoEmoji = document.createElement("span");
+        tomatoEmoji.textContent = "🍅";
+        tomatoEmoji.style.fontSize = "2rem";
+        tomatoEmoji.style.margin = "5px";
+        historyContainer.appendChild(tomatoEmoji);
+    });
+}
+
+loadHistory();
+
+
 pause.addEventListener("click", () => {
 
     if (ObjTime.controllrs) {
@@ -105,6 +148,7 @@ pause.addEventListener("click", () => {
                     if (ObjTime.minutos === 0) {
                         clearInterval(ObjTime.interval);
                         ObjTime.interval = null;
+                        addCompletedSession();
                         return;
                     }
 
