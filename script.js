@@ -13,6 +13,8 @@ const con31 = document.getElementById("container3.1");
 const segundos2 = document.getElementById("segundos2");
 const minutos2 = document.getElementById("minutos2");
 const historyContainer = document.getElementById("history-container");
+const resetWork = document.getElementById("reset-work");
+const resetBreak = document.getElementById("reset-break");
 
 const Play = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="color: crimson;" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
@@ -76,7 +78,7 @@ let arrayDisplay = [Plays, Parar, History];
 
 
 let ObjTime = {
-    minutos: 1,
+    minutos: 25,
     segundos: 0,
     interval: null,
     controllrs: true
@@ -133,6 +135,33 @@ function loadHistory() {
     });
 }
 
+function resetHistory() {
+    localStorage.removeItem("pomodoroSessions");
+    localStorage.removeItem("pomodoroTomatoes");
+    historyContainer.innerHTML = "";
+}
+
+function resetWorkTimer() {
+    clearInterval(ObjTime.interval);
+    ObjTime.interval = null;
+    ObjTime.minutos = 25;
+    ObjTime.segundos = 0;
+    ObjTime.controllrs = true;
+    minutos.textContent = "25";
+    segundos.textContent = "00";
+    pause.innerHTML = ObjSVG.play;
+}
+
+function resetBreakTimer() {
+    clearInterval(ObjTime2.interval);
+    ObjTime2.interval = null;
+    ObjTime2.minutos = 5;
+    ObjTime2.segundos = 0;
+    ObjTime2.controllrs = true;
+    minutos2.textContent = "5";
+    segundos2.textContent = "00";
+}
+
 loadHistory();
 
 
@@ -184,6 +213,7 @@ pause.addEventListener("click", () => {
 parar.addEventListener("click", () => {
 
     if (ObjTime2.controllrs) {
+        parar.innerHTML = ObjSVG.pause;
 
         if (!ObjTime2.interval) {
             ObjTime2.interval = setInterval(() => {
@@ -208,6 +238,7 @@ parar.addEventListener("click", () => {
 
     } else {
 
+        parar.innerHTML = ObjSVG.play;
         clearInterval(ObjTime2.interval);
         ObjTime2.interval = null;
     }
@@ -233,4 +264,19 @@ svgForrward.addEventListener("click", () => {
     valor = (valor - 1 + arrayDisplay.length) % arrayDisplay.length;
     arrayDisplay[valor]();
 
+});
+
+resetWork.addEventListener("click", (e) => {
+    e.stopPropagation();
+    resetWorkTimer();
+});
+
+resetBreak.addEventListener("click", (e) => {
+    e.stopPropagation();
+    resetBreakTimer();
+});
+
+history.addEventListener("click", () => {
+    resetHistory();
+    loadHistory();
 });

@@ -15,22 +15,26 @@
         <div id="container1.1" class="timer-img">
             <h1 style="color: rgb(8, 8, 235); font-size: 2rem; font-weight: bold;">Tomato Timer</h1>
         </div>
-        <div id="container1.2" class="timer-container">
+        <div id="container1.2" class="timer-container" style="position: relative;">
             <h1 class="timer-display" style="display: flex;">
                 <span id="minutos">25</span>:
                 <span id="segundos">00</span>
             </h1>
+            <button id="reset-work" class="reset-button"
+                style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: red; font-size: 0.8rem; cursor: pointer; padding: 5px;">↻</button>
         </div>
 
         <div id="container2.1"
             style="display: none; align-items: center; justify-content: center; flex-direction: column;">
             <h1 style="color: rgb(8, 8, 235); font-size: 2rem; font-weight: bold;">Pausa Timer</h1>
 
-            <div class="timer-container" style="margin: 40px;">
+            <div class="timer-container" style="margin: 40px; position: relative;">
                 <h1 class="timer-display" style="display: flex;">
                     <span id="minutos2">5</span>:
                     <span id="segundos2">00</span>
                 </h1>
+                <button id="reset-break" class="reset-button"
+                    style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: red; font-size: 0.8rem; cursor: pointer; padding: 5px;">↻</button>
             </div>
         </div>
 
@@ -62,11 +66,9 @@
                     </button>
 
                     <button id="parar" class="timer-control-button" style="display: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="color: crimson;"
-                            fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" style="color: crimson;" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+                          </svg>
                     </button>
 
                     <button id="historico" class="timer-control-button" style="display: none;">
