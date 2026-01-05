@@ -9,7 +9,7 @@
     --primary-color: green;
     --secondary-color: #000000;
     --tomato-color: #ff6347;
-    --color: rgb(12, 12, 163);
+    --color: rgb(28, 28, 165);
     --tertiary-color: #ffffff;
     --font-size: 16px;
     --font-family: 'Roboto', sans-serif;
@@ -20,20 +20,22 @@ body {
     width: 100vw;
     height: 100vh;
     background: #002424;
-    background: linear-gradient(90deg, rgb(0, 17, 36) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    color: var(--color);
+    /* background: linear-gradient(90deg, rgb(0, 17, 36) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
+    color: var(--color); 
+    background: linear-gradient(180deg, #1e1f29, #111218);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Inter', sans-serif;
 }
 
 
 .container {
     width: 70vw;
     height: 60vh;
-    background: #020024;
-    background: linear-gradient(90deg, rgb(47, 70, 32) 0%, rgb(33, 117, 47) 35%, rgb(157, 255, 0) 100%);
+    /* background-color: rgb(39, 231, 5); */
+    background: #242633;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px -7px #050505;
@@ -64,9 +66,9 @@ body {
 }
 
 .timer-control-button {
-    background-color: rgb(12, 12, 163);
+    background-color: rgb(26, 26, 182);
     color: #ffffff;
-    border: 1px solid rgb(168, 18, 18);
+    border: 2px solid rgb(168, 18, 18);
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -83,7 +85,7 @@ body {
 }
 
 .timer-control-button:hover {
-    background-color: rgb(13, 13, 224);
+    background-color: rgb(0, 0, 255);
     height: 55px;
     width: 55px;
 
@@ -92,17 +94,16 @@ body {
 }
 
 
-
 svg {
     animation-delay: 5s;
-    color: rgb(16, 16, 150);
+    color: rgb(14, 14, 204);
     animation-duration: 5s;
 
 }
 
 svg:hover {
     animation-delay: 5s;
-    color: rgb(14, 14, 204);
+    color: rgb(0, 0, 255);
 }
 
 ul {
@@ -137,6 +138,10 @@ ul {
 
 .timer-controls:hover {
     visibility: visible;
+}
+
+#reiniciar:hover{
+  color: deepskyblue;
 }
 
 
